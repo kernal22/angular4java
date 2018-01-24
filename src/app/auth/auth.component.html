@@ -1,0 +1,42 @@
+<div class="wrapper wrapper-full-page">
+    <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              <!--   <a class="navbar-brand" href="/#/dashboard">MD Pro Angular</a> -->
+            </div>
+            <div class="collapse navbar-collapse" id="menu-example">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="https://jaavatrade.com/index.html">
+                            <i class="material-icons">home</i> Home
+                        </a>
+                    </li>
+
+                    <li routerLinkActive="active">
+                        <a [routerLink]="['/register']">
+                            <i class="material-icons">person_add</i> Register
+                        </a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a [routerLink]="['/login']">
+                            <i class="material-icons">fingerprint</i> Login
+                        </a>
+                    </li>
+                  
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+              <router-outlet></router-outlet>
+
+        
+</div>

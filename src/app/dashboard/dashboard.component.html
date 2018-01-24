@@ -1,0 +1,269 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Choose your Avatar!</h3>
+      </div>
+      <div class="modal-body">
+        <div class="card-content">
+            <ul class="nav nav-pills nav-pills-warning">
+                <li class="active">
+                    <a href="#board1" data-toggle="tab" style="text-transform: capitalize;">Animated</a>
+                </li>
+                <li>
+                    <a href="#board2" data-toggle="tab" style="text-transform: capitalize;">Celebrities</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="board1">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let pic of profilePics">
+                            <img id="img-{{pic}}" src="assets/img/avatars/{{pic}}.jpg" class="img-thumbnail" (click)="chosePic(pic);" style="margin: 10px auto; cursor: pointer;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="board2">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let pic of celebPics">
+                            <img id="img-{{pic}}" src="assets/img/avatars/{{pic}}.jpg" class="img-thumbnail" (click)="chosePic(pic);" style="margin: 10px auto; cursor: pointer;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [disabled]="!chosen" (click)="savePic()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="main-content" >
+    
+    <div class="container-fluid">
+        <div>
+            <div class="row">
+                <div *ngIf="!membersData">
+                    <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let data of [1,2,3,4]">
+                        <div class="card db-top-loader">
+                            <div class="loader">
+                                <svg class="circular" viewBox="25 25 50 50">
+                                    <circle class="path" cx="50" cy="50" r="10" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let data of membersData">
+                    <div class="card card-stats">
+                        <div class="card-header" attr.data-background-color="{{data.color}}">
+                            <i class="{{data.class}}">{{data.logo}}</i>
+                        </div>
+                        <div class="card-content">
+                            <p class="category">{{data.title}}</p>
+                            <h3 class="card-title">{{data.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row referral">
+                <div class="col-md-6">
+                    <div *ngIf="!profileData" class="card db-referral-loader">
+                        <div class="loader">
+                            <svg class="circular" viewBox="25 25 50 50">
+                                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div *ngIf="profileData" class="card">
+                        <div class="card-header card-header-icon" data-background-color="green">
+                            <i class="material-icons">language</i>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h4 class="card-title"> Referral Links </h4>
+                            <div class="row">
+                                
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input id="refer-link-1" class="form-control" type="text" value="{{profileData?.reflink1}}" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-sm" (click)="copyToClipboard('#refer-link-1')">Copy Link<div class="ripple-container"></div></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input id="refer-link-2" class="form-control" type="text" value="{{profileData?.reflink2}}" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-sm" (click)="copyToClipboard('#refer-link-2')">Copy Link<div class="ripple-container"></div></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title text-center"> Social Links </h4>
+                            <div class="text-center" style="display: block;">
+                                <button class="btn btn-just-icon btn-round btn-twitter">
+                                            <i class="fa fa-twitter"></i>
+                                        <div class="ripple-container"></div></button>
+                                <button class="btn btn-just-icon btn-round btn-facebook">
+                                            <i class="fa fa-facebook"> </i>
+                                        <div class="ripple-container"></div></button>
+                                <button class="btn btn-just-icon btn-round btn-google">
+                                            <i class="fa fa-google"> </i>
+                                        <div class="ripple-container"></div></button>
+                                <button class="btn btn-just-icon btn-round btn-linkedin">
+                                            <i class="fa fa-linkedin"></i>
+                                        <div class="ripple-container"></div></button>
+                                <button class="btn btn-just-icon btn-round btn-pinterest">
+                                            <i class="fa fa-pinterest"></i>
+                                        <div class="ripple-container"></div></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngIf="!profileData" class="card db-referral-loader">
+                        <div class="loader">
+                            <svg class="circular" viewBox="25 25 50 50">
+                                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div *ngIf="profileData" class="card wizard-card" style="min-height: auto;" data-color="rose">
+                        <div class="card-header card-header-icon" data-background-color="blue">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title"> Your Profile </h4>
+                            <div class="picture-container">
+                                <div class="picture">
+                                    <img *ngIf="!profileData?.profilepic" src="assets/img/avatars/default-avatar.jpg" class="picture-src" id="wizardPicturePreview" title="Your Image" data-toggle="modal" data-target="#myModal" />
+                                    <img *ngIf="profileData?.profilepic" [src]="'assets/img/avatars/'+profileData?.profilepic+'.jpg'" class="picture-src" id="wizardPicturePreview" title="Your Image" data-toggle="modal" data-target="#myModal" />
+                                </div>
+                                <h6> {{profileData?.name}} </h6>
+                            </div>
+                            <div class="row acc-profile">
+                                <div class="col-md-6">
+                                    <div class="row"><span class="col-xs-6">User ID</span>: {{profileData?.userId}} </div>
+                                    <div class="row"><span class="col-xs-6">D.O.J.</span>: {{profileData?.doj}}</div>
+                                    <div class="row"><span class="col-xs-6">Sponsor ID</span>: {{profileData?.sponsorId}}</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row"><span class="col-xs-6">Package</span>: {{profileData?.package}}</div>
+                                    <div class="row"><span class="col-xs-6">Country</span>: {{profileData?.country}}</div>
+                                    <div class="row"><span class="col-xs-6">Contact</span>: {{profileData?.contact}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card sidebar-wrapper" style="min-height: 480px;">
+                        <div class="card-header card-header-icon" style="font-size: 30px;" data-background-color="red">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Latest Sign-up's</h4>
+                            <div class="table-responsive" style="min-height: 0px">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th *ngFor="let head of tableData2">{{head}}</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="scrollbar" id="style-3" style="max-height: 480px; overflow-y: scroll;position: relative;">
+                                <div *ngIf="!tableData" class="loader">
+                                    <svg class="circular" viewBox="25 25 50 50">
+                                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                                    </svg>
+                                </div>
+                                <app-md-table [data]="tableData"></app-md-table> 
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-header card-header-icon" style="font-size: 30px;"data-background-color="orange">
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">All Incomes</h4>
+                            <div *ngIf="!allIncomes" class="row">
+                                <div class="col-md-6" *ngFor="let data of [1,2,3,4,5]">
+                                    <div class="card db-income-loader">
+                                        <div class="loader">
+                                            <svg class="circular" viewBox="25 25 50 50">
+                                                <circle class="path" cx="50" cy="50" r="15" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" *ngFor="let data of allIncomes">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-icon" attr.data-background-color="{{data.color}}">
+                                            <i class="{{data.class}}">{{data.logo}}</i>
+                                        </div>
+                                        <div class="card-content">
+                                            <p class="category">{{data.title}}</p>
+                                            <p class="card-title"><i class="fa fa-usd" aria-hidden="true"></i> {{data.value}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!allWallets" class="row">
+                <div class="col-md-4" *ngFor="let data of [1,2,3]">
+                    <div class="card db-wallet-loader">
+                        <div class="loader">
+                            <svg class="circular" viewBox="25 25 50 50">
+                                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let data of allWallets">
+                    <div class="card">
+                        <div class="card-image" attr.data-background-color="{{data.color}}">
+                            <a href="javascript:void(0);" >
+                                <img class="img" src="assets/img/{{data.img}}.png">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title text-center">{{data.title}}</h4>
+                            <h4 class="text-center"> <i class="fa fa-usd" aria-hidden="true"></i> {{data.value}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</div>

@@ -1,0 +1,188 @@
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-md">
+  		<div class="modal-content">
+    		<div class="modal-header _modlcstmhead">
+			    <button type="button" class="close" data-dismiss="modal">&times;</button>
+			     <h3 *ngIf="model.coinname==='btc'" class="text-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAMAUExURUxpcf+jK/aUHPeVH/ioSPaSG+R9Fv//QvujKvlbW/aTHOmHLPinSPimRfeeM/qZIveXI/ehOPipSfaaN/ikQvmkP/GIKveaK/yZHvWSIPecLveYJ/urRvydIfupR/2wSviWI/iZKPaaMPqaIvyuSfKZLPegNv2dIP2ySv2eIfeiPPinRPydIPqiQ/ylN/aVIvmeNPmnRvuZIPqYIPiiOvuqQP6xSvyfKf2vSv2uSf2pPfyuSP2wTPumPP6ySfuhMfmgMPujNPmaKvyrQP2cH/2cHf2nOfqoP/+vQvqmQP2hI/qoQPytSPyuTPifMv2xTPyXGvWTLPynOf2zTPylNPqgLvugM/WeNP2hLfyjM/udJ/mVGvmYH/ucJfufK/uYG/ykOPqrS/6bG/ybHP////igNveWIfmmQvidMPeXI/ieMvmlQfibKveWH/eYJPmnRfifM/iiOviZJ/moR/mmQ/mnRPidL/eXIvigNfihOPihN/iUHPicLvihOfeYJfieMfmlQPicLfifNPijO/ijPPmkP/eVH//+/fijPfikPvmoRviaKPicLPiaKfeVHfiaKviVHfmpSfqpSP///vmmRPmiOvidLveYJviiOfeZJviZJvifNfikP/ikPf/+/PibLP/+/viUGv/9/feaKPmpSv+3T/u9cveRFfilQfeUHf705/+jIv+dHf/9+/+0Tf+zSfzWqfiSGPvFhP/89/iYJfzRnfmgNvzMk//58v/37vmUG/+wTP+oMviZJ/ilQPmfMvidMf+gHviXJPmeMv3jxP3hv/q4Z/vAev7t2f+rPf+aHPmXHvzPmPq0XvmsUPqxWfzJjfibKv/69P7r0/zUo//27P2sSv+qOfiXI/meMP+mJ/7w3/q1YvquVP+uQf3ny/7ozvePEf+2SfyWG/+kM/+eH/vCfv3bsf+hJfq5a/iXIfmhOP+mLfiSFvmpSv+vPvecLf3myP+yRf7y4/qgMvmnRv3ctPeiPf2bH/3eufygMv2kOPyeKvulPfegNvqnRt3gNGUAAABkdFJOUwD+/vz+/gUBAgH8C/39/Ub8/fwR/PwO/ooh/f1GvzDQMf0rhIsW/avC1P3+ziGFTEFMVLr+rKv29YPzVLlZ1++KuGvRx/PbwPz87Yru3vid3xmc78ed4ErXzavvW/7enfZqntg2GdcBAAAP8UlEQVR42rSXfUxTVx/H7x9NuURKgoBmhIBZkBCMbCTARFGGJG5mOjPZ5vbflpxKKR1QaHmgtrS2hQso+ugFggKlDkpqkxbCi9SUdGS8NgEhIqCRF0cIRnkSFHyJ83HPc25B7m3V+6L4jYncnnt/38/9nd/5nXMRhIN8+Kj7/51hsb8mHksKP3pkK9SRo+FJxxJ/jQ0LdA+ifB/ko8gHJdz5u/dFJB1Ic9hMJpvDMTnZ1DQ56SCuTI60A0kR+3bzCQZ08xnc7oGxEVF7bNB5sol4dV7Tmng84qppEnLY9kRFxAa+vn9zX35b6LGjDpNt0s8PWr/2pojA8PObtJkcR4+FBm5qGoiXCUsMh6EvbPXjXaAVz2/rBYgZnhi2/uCm2KOhCWkmB8+Px+C+zgAhHKa0hFDiSd8Ptod53JfkME36sTInEzFps0Xt84Wz94GTjyChSTYbj5v9GgIPIsSuvcIHZD8sweG2z+OsC3kQoSUh7P1LAb7+tsQ9Np4g770l4Nn2RAS+ZxKI7IebLgp4eR8gnuCiKTz2vZLAR7ZEOBwCQd4HSiBwOCK2IXyO9r4oEhZlKheUb4IEPFN4GMdpINZeWovgafnmSNCStt8dlP308yNaJgXZmybBxZYIPvtCgNWfMC/YRH9IsMuWsI0tAYrsjJoX7MreVO0SzEd9x44ARXaHtwTJN11BLeG72RBA/wMtArn8YxAcYEHg9g+SV34EsSJAke9g/mUfSXAWGOrAB9kSxc0/+2l2JReCqC10/cAH5cfPB6VzUGWVVpf5NFsuY3l/0Hw8n6Ynosg33PzlVQ/aZvS9Wj3rJ4Lmv3n3JPCR/StBZk4Af/SD6+OtgzPrl8yZMB9e2f+unQnuP0fKgzO5qDhzyACgrF21MnhZu1Qsk8voHwmWHwl7ew580C2pK9z8ZUsj7QDDsN9BW28lxGmeLu7tXSpmIFhJ3fLWMkCRiPloTv6Zlb1tAGYAA/aZJVmmvtwOhu63jRYXZ2poCd5eBigS+vVhp4aTZHfuQ3f4b1ynyZRpB6zEdNy8O7KUTveU8/DXn79J4IMGps4GM1qmyymxM4tf3QU4AdB6R66R3xkGBsxgAPYbVbQAmuDZ1MA3JgFFYlaCi5mUuSSCU5yeuX51bdRKABjB4B34U0E/MR8GvE/LFCZ4JdE7BSjy6V5NHdODmsKBxRsqUc81WGea4uL0O23QHCK0zyxpNFX/s6ylo1OZzhCnTrP3U08CXxSNX4muY5K5px/Y790avKFS9qjqzJXiZ2s1OC4trTNrB4BbxgdiM1Og6JV41OOrjajA4DIm1ellFpzwIHrPjX9EjwqGiBq0glalucz8qIu4wMFEXk0dY6hgrzr0Qb+ajWZ8ypwzbQC40YAREPa51uYH7e5XBovi9DKnuI8AMII+sZMxUln07FfUMkSR2Nnn9YxyVo8Bt7kRw9yZcPvjwC4/W2bWl1uIQQMYrnYyh6p/PhtLpsAX5cMElDKqTPQCGMC6cMyAr/95fXGmVHxyxIrjAMeND3qczKFKYQr4G1WAIp/Plj5n9leZ7xqt2GtbyLDxZ/vdF4Otaz3JwhOWsQB4Xuoiq8AHiZ+N1jOqTDzingCDEXiJZDKAfrWzVM9C0bPxr48mRA94xQJArzOPtD0baicqzZsAVoX7R9gFskRwFbAAeLXRC2ATXI7WsZBeqj5brRsdW32TgESx9w06JQXOesZo0csxawDwHJjqCtCxUn1dfWFOo3OckvS3aHW4SaIoY4oV4EpdOx/CJuSKk7KWvtR8ftqKUwgwDxqcuJwYrmso1TNEinOF+qJugOPLAVIuKiyzeE4CttabNhjgWr3bfL6QgSBg+TgxBz5I4CFXNBd/XcGuCQqAdfWmG4KaCCMEaq3VltLGiXYdCoT2fOSEqyqOC0D9owHyhTFwTzi62Dpuda9BCoIRPI7T0uYgLs51AuG710BADRfVNw4DjFz4t4pyJBLFzNhcOwCUmcCt4LFYIaULFLDsPpvxv3cFqLhI+qgf/E5moLmhTi8tFDWKRlvbqQTELlmhpwsU4PqeOKDv/uUlNwCtjKxBHFxvUksJKr1KmXujn1qcuME63UBHEFD1yycQYJ8rspCLpGcHSBsDuCdWqNy/q6Q6ZUUXNQcG0HdaRRcq0rUfAny5zA1Ad6nLowQada9HFFLVyWGPHLTPiGroAJa/hAAprkgFF9Wc7aO+ZnOjjjImrB6nDMKjyiUdTajIqRQEdoGpAC7+KrF5YsMDnkeb1IWUUd3lNspqxMCty3QAAVOHdiI79r6MFHJQTcWAYWMrgF1A5DGqkoyQo3D4fq6KJlbky707kBMvhf9wAVB1dAErWQKdHSpPgLVPBXYAQuHLz5CDU5wSIBRK+skkwy7g6aA600zZKYkpqKGLFTl1EImZ8i/gIIVaM0GZgesXqhXU4ZqsW5QaMIK2rBq6aP5TMchxjgAVI5RdEMxVCGsKSQRdQzp1n8LBiKSQHuA4kjLlX8tBqowxcp1h4JlIktUoEq6va+GlR9ReaASrUjVtNH+4Dn9e8NdyUEGuRxfAVl+MjeolGRlFHR1FGZLROc9O2JohpI3mv/Az8iMnAKGy1OKx4xCbjmWudWywuXlxeM7q0Qcx62gFE8CPSPKTHA4S5k57nsqNnochr90QJoA+3pNk5FtOAIqHlC5AOZOvC/fwH7qWX8AQ78m3iP8fXAC0jf0ep453ns4xDAxlVwgZA/oj/mIuUuonPFxxg+Fd3wjPqnKFjPF6/eEUcPAvKBqherTb146jmHcmrBP9A0UNtcwB4RQkcwL4rYvaBTqFzZ19E298LxqBZfqvP2tz1CwAkuEy7FGzlVh8uY+6EQxcKXp4pnigc8hK5IGagokxiUTLHLAHLkPYiFgD5Eikq9TjYPpphVYtuf2bcrRz1fsLqU/RyExANKKUhRARW4n/HMFxcid63KjsEfWIxTn5WeeEg0PULmC0gvHCihymgCELKcgP3RwASsbIGYBngZJ1BwjRUKIca6cuECuYO69UMwF0/4DEcABQZ1G6AG4cOEm+Yo+24cqMR5e2gq4SMSNADHKwOySfpdSSJbILGIHdmasmB6vVBaeeWnCM0iDtsjNq+ogh3QeREwts/fPF/xrBKIeRucte4wVXHuBG6r4wdi6HIeTCZ8iO5L9DqhkkEqvV+dXVOee6qItw+Jza6z71bep2jOFzHfm0cUP+Tt6B7PxpIUTJoNyrD3OVsAuc6id3ItgFSnq87lOfGvM4lFsUufl0cUMWftoJP0y6GQBEt2eGp6syTpX8NXMTJ0tgQpMr8rqzp2TQ40R4vbJDRAvQnUJ8mnWHnKZV/tX7AFj6hpvbLOQ6M4DHlxuUXneK/r3oAWDPuy2iixzSTXya7e/eTu/fIbcbMO+9DnaBq28EV1/t9ACY0HTk04Xe/h/i4/STL/67/ez/i7ee0DSyODwq/unkoFAwhkEw9SABwcUcci/JJacEtlDSf9C6blwmHuxuc2gwFbbKYlJThIbx4GSYxVlXA53EbJIeCmazjRjWliaBkmTZSnBjxBxC2ZJCWPaNY0JmjW+cxLLfRcTx/b735jfv/ea974NglOIWoKloNBw4XW859kqjPuGVz8bwLcFbwYfR4DNIy61HXdzruerLMozAiOebD45A7d7oIs7iPvD4AxIkdx059mA0P3N6Lgw4lks+WNday9wGhQYkQStZH4PUSm18brt+/vUvfmpiKTQyOAhS/cGgb4l5NTslIDDPDkJaJltBCmgQFaKVka14fZT+DETPrnl+/vRm+3FwgmUpALb0aE5Yo02FX/tHIA3jrTIbCK9GLt+W1Scw8nDv7KKnuvpuZD7NzcS4mnx5QRgfFIVkkITGv81t04FBuFauT8BX2t7N8HlfU/2BgvA/T4agLAN34AF0AMrXEH6nVAsZAXysRD3L/fVxa5bfEg3XLckDQn7h8MLL0hiMQLtMWyGgRlquy9pDdUGSHj8b9+Vmdj84JABMFKwvBEG77LqePzHQIOYyBrs0RPrIVJylRv6Y+VRdj6emROKDSeDXJRzWKFY2n5wXXOk6ah+HAyfH8EiczT8/vtPRM/JSkKG/sz5Yg+1HXSeHl2pkoIyNNwBfyLPGEQg7Nhah/Qdr5gpDQtvCygMnahIN8oWsnQ6KA5+4/5Y/nl0Zja1nZsPHG9OCsQB56ZiN7ePQpujjFKxqVzplWCME2Bg/AG+/ZSj2XW7xuEYPR6ej/KMQneamzYMcgwc9sKYwmfGUmkWD2GSeBhBi1vmzuUzKg/vYv6tl8MaCYPwXl/ecFC7SFCaznz67VauNMkycQGQpw/U54FhncA++P8NtmoN8ePz41czc7m/v1zJrBx/nYo8eMqmQaHyjQEFQyQJCLP74w69n+RSIAQJBdpdLtqhjGSwE+/vsk3cRT6pEMfsTQVy0K6czoHp8P7Cpi4gAZ2JVvcB3E0FPCSz+U5XD4n0w4Y0HI5FUKhXxjOPBiCh0mxaVUHTNzQVBjICDZp5X9QJuN0FTuTA/5W4zOCENWKTrSq2EwryJTUJBuJzvuQOxaZAC9GSIWeH1Agtf+YlJadBtmmtULGqN3lrUeWGgqadhR2A6wKUA7aWZj7xe4CA+6ZUGXbGjVsTC5eERJkIgl6k8cG9/omjCSW/xeoH5PC2RAFbUni0kMm/qvG4IJoeGXsbW3zu2hlxemv1xls/IbYZ2S4FXt2k4U8t1SaPqLurg/3VRDDN0PzfkddOgAI0CODb+iROSCOiK1hb1pbPFbFd6b4kwIGhimFKCcSKYeV7GdhB3eSXFv9VrqifoUyH2os4lCq+38uH+YW99bdExlydcUqAr3qwvNK+kQaMtOal83v997CnllRS/TgKcuGkGGmfgJggnm4+7hiXFt8AknWBRajEmFMMNA+SCe1gCFAljC1zkrkH6rVIYSAOYgfrFhcVtHUXFsPNzQFHsaGtEWs0x+P/iVxiAu/AZ4iesbY3K6/tBJiqGmgoFyL/+xg0GekuTGYD4Fr0Ui4XKkFhtIgP0MGFQSfH6gEf1Zm8B9TcJaKHXDlY7iTYfU3fC2RQKqD/RbZLuu1MhekOhoJA/uSDkaOHQ0CLZ6MRbvWwdiVVUfrHwqwmr9px+N3AbLht60nL0/PFRebrHrD+/7RHwNlmSBfn5RkGOxguHFtOFnJ+c4VFrrFCISwT4S+HQqL2Y4bFq37Ubk+lVFJUSHkVX09lOO3JRy+ex6VVr6UlnQZ8aGgc5uDCb7rFoNU303SImc0cynQU9k4uNPBrPppMdZlPTbL8nxmftnb7DdHJVCUgolVQNlEoQXPkC0Oy7o9U33f/NW79thm5FMp3M7gAWqFLJ8+A+ua87WfCTottga771+7T5vc1u6Lx3I5sEyO7svAAEXuxkua/ZnnudBnvb5zK/C+3/JttV891Oa98N0HH0Rp+1867hqs3Ufx77/78a9FqNSo/+dQAAAABJRU5ErkJggg==" style="width: 30px; position: relative; top: -4px;">  BitCoin</h3>
+			     <h3 *ngIf="model.coinname==='eth'" class="text-center"><img src="data:image/png;base64,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" style="width: 30px; position: relative; top: -4px;"> Ethereum</h3>
+			     <h4 class="modal-title"></h4>
+			     <button class="btn btn-rose btn-md btn-round"><span class="text-left">Invoice No: {{ model.invoiceno }}</span></button>  
+			     <button class="btn btn-rose btn-md pull-right btn-round"><span class="pull-right">Time Remaining: <span id="timer"></span></span></button>
+		    </div>
+   			<div class="modal-body" style="overflow: hidden; padding-top: 15px; padding-bottom: 0px;">
+  				<div [ngSwitch]= "tab">
+					<div *ngSwitchCase = "false">
+		    			<h4>Please Enter Your Email Address. We will contact you at this address if there is an issue with your payment.</h4>
+		    			<form>
+		    			<input class="form-control" type="email" name="email" placeholder="Enter Your E-mail" [(ngModel)] = "email" required>
+		    			<span *ngIf="error" style="color: red">* Email is required and should be a valid one</span>
+		    			</form>
+		    		</div>
+		    		<div *ngSwitchCase="true">
+		    			<div class="card-header card-header-tabs" data-background-color="rose" >
+	                        <div class="nav-tabs-navigation" style="margin: 0 auto">
+	                            <div class="nav-tabs-wrapper">
+	                                <ul class="nav nav-tabs" data-tabs="tabs" style="background-color: #f89f34;">
+	                                    <li class="active" (click)="hideAddress()" style="width: 49%">
+					                        <a href="#pill1" data-toggle="tab" style="text-align: center;">
+						                        <i class="material-icons">center_focus_strong</i> QR Code
+						                        <div class="ripple-container"></div>
+						                    </a>
+					                    </li>
+	                                    <li (click)="showRskBtn(count)" style="width: 49%">
+					                        <a href="#pill2" data-toggle="tab" style="text-align: center;">
+					                        <i class="material-icons">content_copy</i> Copy
+					                        <div class="ripple-container"></div>
+					                    </a>
+					                    </li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                    </div>
+		                <div class="tab-content">
+		                    <div class="tab-pane active" id="pill1">
+		                    	<h4 class="text-center" style="margin-top: 20px; margin-bottom: -7px;">Scan QR Code</h4>
+		                        <div class="card-content card-image text-center thumbnail" style="margin-top: 0; margin-bottom: 0px;">
+					      		 	<img src="{{ model.qr }}">
+					      		</div>
+					      		<div *ngIf="qrshow === 1" class="text-center">
+						    		<h4>After Doing Payment Click OK</h4>
+						    		<button type="button" class="btn btn-success btn-md smallcap" (click)="addFund()">OK</button>
+						     		<button type="button" class="btn btn-rose btn-md smallcap" data-dismiss="modal">Cancel</button>
+						    	</div>
+		                    </div>
+		                    <div class="tab-pane text-center" id="pill2">
+			                    <div class="card-content card-image riskcontent" style="margin-top: 0;">
+			                    	<span style="display: block; font-size: 88px; color: orange; line-height: 1;">&#9888;</span>
+				    				<p style="font-weight: 500">Advanced use only</p>
+				    				<p>Your payment must include the exact amount of bitcoin requested and a correct bitcoin miner fee.</p>
+				    				<p>Payment with insufficient funds or mining fees may be very  delayed or need to be refunded</p>
+								</div>
+				               <button type="button" class="btn btn-success btn-risk smallcap btn-md" (click)="showCopyTab(1)">I Understand the Risk</button>
+							</div>
+		                </div>
+		    		</div>
+		    		<div class="card-content">
+	    				<div class="copyContent" *ngIf="coppy == true && flag===1 ">
+	    					<div class="form-group">
+	    						<div class="form-group">
+				                    <label class="control-label">Value</label>
+				                 	<input class="form-control" type="text" id="value" name="value" value="{{ model.amt}}" disabled>
+					            </div>
+	    						<label class="control-label">Address</label>
+			                    <input id="address" class="form-control" type="text" name="address" value="{{ model.address }}" disabled>
+			                    <button class="btn btn-success btn-sm smallcap" style="float: right; position: relative; top: -40px" (click)="copyToClipboard('#address')">Copy Address</button><div class="ripple-container"></div>
+	    					</div>   
+		                </div>
+		    		</div>
+				</div>   		
+    		</div>
+		    <div class="modal-footer text-center">
+		    	<div class="confirmDiv">
+		    		<h4>After Doing Payment Click OK</h4>
+		    		<button type="button" class="btn btn-success btn-md smallcap" (click)="addFund()">OK</button>
+		     		<button type="button" class="btn btn-rose btn-md smallcap" data-dismiss="modal">Cancel</button>
+		    	</div>
+		     	<button type="button" class="btn btn-success btn-continue smallcap pull-right" (click)="selectTab(1)">Continue</button>
+		    </div>
+  		</div>
+	</div>
+</div>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf='allWallets'>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="card">
+                    <form #trade="ngForm" (ngSubmit)="trade.form.valid && onWithdrawRequestTradingWallet()">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+	            			<i class="material-icons">
+	            				<i aria-hidden="true" class="fa fa-arrow-down"></i>
+	            			</i>
+	        			</div>
+            			<h4 class="card-title" style="padding-top: 13px;">Add Fund</h4>
+           					 <div class="card-content">
+                       			 <ul class="nav nav-pills nav-pills-warning">
+		                            <li class="active">
+		                                <a style="text-transform: capitalize;" href="#pill3" data-toggle="tab" aria-expanded="true" (click)="conversionOnKeyPressBTC()" class="smallcap"> Using Bitcoin</a>
+		                            </li>
+		                            <li class="">
+		                                <a style="text-transform: capitalize;" href="#pill4" data-toggle="tab" aria-expanded="false" (click)="conversionOnKeyPressETH()">Using Ethereum </a>
+		                            </li>
+		                        </ul>
+		                        <div class="tab-content">
+		                            <div class="tab-pane active" id="pill3">
+		                               <div class="form-group">
+			                            	<span> 1 BTC = $ {{ btcInUsd }}</span>
+		                        		</div>
+		                        		<div class="row">
+			                            	<div class="col-md-6">
+			                            		<div class="input-group">
+			                            			<span class="input-group-addon" style="padding: 0; position: relative; top: 7px;">
+                                          			  <i class="material-icons">attach_money</i>
+                                       				 </span>
+                                       				 <div class="form-group label-floating input-group" [ngClass]="{ 'has-error': trade.submitted&& !amount.valid }" style="width: 100%">
+						                                <label class="control-label">
+						                                    Amount
+						                                    <small>*</small>
+						                                </label>
+	                                        			<input type="number" id="amount" name="amount" class="form-control" required [(ngModel)]="model.amount" #amount= "ngModel" (keyup)="conversionOnKeyPressBTC()" min="0" oninput="validity.valid||(value='');">
+						                                <div *ngIf="trade.submitted && amount.invalid" class="help-block">Amount is required</div>
+						                        	</div>
+			                            		</div>
+					                        </div>
+			                            	<div class="col-md-6" >
+			                            		<div class="form-group label-floating">
+					                                <label class="control-label">
+					                                    Value in BTC
+					                                    <small>*</small>
+					                                </label>
+					                                <input type="number" id="btcEqui" name="btcEqui" class="form-control" required [ngModel]="model.btcEqui" #btcEqui= "ngModel" disabled>
+					                                <span class="material-input"></span>
+						                        </div>
+			                            	</div>
+			                            </div>
+		                            </div>
+		                            <div class="tab-pane" id="pill4">
+		                               <div class="form-group">
+			                            	<span> 1 ETH = $ {{ ethInUsd }}</span>
+		                            	</div>
+		                            	<div class="row">
+			                            	<div class="col-md-6">
+			                            		<div class="input-group">
+			                            			<span class="input-group-addon" style="padding: 0; position: relative; top: 7px;">
+                                          			  <i class="material-icons">attach_money</i>
+                                       				 </span>
+                                       				 <div class="form-group label-floating input-group" [ngClass]="{ 'has-error': trade.submitted&& !amount.valid }" style="width: 100%;">
+						                                <label class="control-label">
+						                                    Amount
+						                                    <small>*</small>
+						                                </label>
+	                                        			<input type="number" id="amount1" name="amount1" class="form-control" required [(ngModel)]="model.amount" #amount= "ngModel" (keyup)="conversionOnKeyPressETH()" min="0" oninput="validity.valid||(value='');">
+					                               		 <div *ngIf="trade.submitted && amount.invalid" class="help-block">Amount is required</div>
+						                        	</div>
+			                            		</div>
+			                            	</div>
+			                            	<div class="col-md-6" >
+			                            		<div class="form-group label-floating">
+					                                <label class="control-label">
+					                                    Value in ETH
+					                                    <small>*</small>
+					                                </label>
+					                                <input type="number" id="ethEqui" name="ethEqui" class="form-control" required [ngModel]="model.ethEqui" #ethEqui= "ngModel" disabled>
+					                            </div>
+			                            	</div>
+			                            </div>
+		                            </div>
+		                        </div>
+                    		</div>
+            				<div class="card-content">
+	                          	<div class="form-footer text-right">
+	                                <button type="submit" class="btn btn-rose btn-fill smallcap">Add Fund</button>
+	                            </div>
+	                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

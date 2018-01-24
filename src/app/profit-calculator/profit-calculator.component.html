@@ -1,0 +1,104 @@
+<div class="main-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card _cardc">
+					<div class="card-header card-header-icon" data-background-color="rose">
+						<i class="material-icons">keyboard</i>
+                    </div> 	
+                    <div class="card-content">
+                    	<div class="row">
+                    		<div class="col-sm-6">
+                    			<h4 class="card-title">Profit Calculator</h4>
+                    		</div>
+                    		<div class="col-sm-4">
+                    			<span class="btn btn-primary btn-round btn-md pull-right smallcap vibratespan" style="margin-top: -7px;">Aval. Bal.:&nbsp; &nbsp;<i class="fa fa-usd"></i>  {{ purchaseW }}</span>
+                    		</div>
+                    	</div>
+                    	<div class="nav-center">
+		                    <ul class="nav nav-pills nav-pills-info nav-pills-icons _navcstm" role="tablist">
+		                        <li [ngClass] = "{'active':  commonService.package_id === 0 || (commonService.package_id === 2) }">
+		                            <a href="#description" role="tab" data-toggle="tab" class="destab tab11" (click)="calculateMinMaxRange('TYCOON', $event.target)">
+		                                <i class="material-icons">card_membership</i> Tycoon
+		                            </a>
+		                        </li>
+		                        <li [ngClass] = "{'active':  commonService.package_id === 3   }">
+		                            <a href="#description" role="tab" data-toggle="tab" class="destab tab22" (click)="calculateMinMaxRange('ULTIMATE', $event.target)">
+		                                <i class="material-icons">card_giftcard</i> Ultimate
+		                            </a>
+		                        </li>
+		                        <li [ngClass] = "{'active':  commonService.package_id === 4 }">
+		                            <a href="#description" role="tab" data-toggle="tab" class="destab tab33" (click)="calculateMinMaxRange('INFINITY', $event.target)">
+		                                <i class="material-icons">card_travel</i> Infinity
+		                            </a>
+		                        </li>
+		                    </ul>
+		                </div>
+		                <div class="tab-content _tab-content-cstm">
+		                	<div class="tab-pane" id="description">
+		                		<ul class="nav nav-pills nav-pills-warning _custmpills">
+			                        <li class="active">
+			                            <a href="#pill1" data-toggle="tab" class="_tabhead" (click)="calculateRoiProfit('normal')">Normal ROI</a>
+			                        </li>
+			                        <li>
+			                            <a href="#pill1" data-toggle="tab" class="_tabhead" (click)="calculateRoiProfit('booster')">With Booster</a>
+			                        </li>
+		                        </ul>
+		                	</div>
+		                </div>
+		                <div class="tab-content">
+                    		<div class="tab-pane active" id="pill1">
+                    			<div class="row">
+
+									<div class="col-md-4">
+										<div class="indicatorContainerWrap">
+										    <div id="indicatorContainerBet"></div>
+										    <span class="prgLogo" style="color: rgb(156, 39, 176)">Investment</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+	                    				<div class="indicatorContainerWrap">
+										    <div id="indicatorContainerInvestment"></div>
+										    <span class="prgLogo" style="color: rgb(233, 30, 99)">Earnings</span>
+										</div>
+	                    			</div>
+									<div class="col-md-4">
+										<div class="indicatorContainerWrap">
+										    <div id="indicatorContainerDays"></div>
+										    <span class="prgLogo" style="color: rgb(44, 169, 227)">Days</span><br>
+										    <span class="prgLogo days" style="color: rgb(44, 169, 227)">{{ total_days }} </span>
+										</div>
+									</div>
+	                    		</div>
+                    		</div>
+                    	</div>
+                    		<div class="row" id="slider">
+                    			<div class="col-md-8 col-md-offset-2" style="padding: 0 0 0 0;">
+									<nouislider
+									 [connect]="false"
+									 [min]="min_value"
+									 [max]="max_value"
+									 [step]="10"
+									 [(ngModel)]="simpleSlider"
+									 [tooltips]="true"
+									   #slide
+									 class="slider _slidecstm"
+									 (change)="calculateProfit(slide.value)" style="width: 90%;margin: 0 auto;">
+									</nouislider>
+									<span style="float: left;"><i class="fa fa-usd"></i> {{ min_value }}</span>
+									<span style="float: right;"><i class="fa fa-usd"></i> {{ max_value}}</span>
+								</div>
+                    		</div>
+                    		<div class="row" id="inp" *ngIf="commonService.package_id === 2 || commonService.package_id === 3 || commonService.package_id === 4">
+                    			<div class="col-md-2 col-md-offset-5">
+  									<button class="btn btn-rose btn-md smallcap" style="border-radius: 20px;" (click)="purchasePackage(commonService.package_id, commonService.package_name)">Purchase Now</button>
+                    			</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>					
+	</div>
+</div>
+
+	

@@ -1,0 +1,82 @@
+<div class="main-content">
+    <div class="container-fluid">
+    	<div class="row">
+    		<div class="col-md-6">
+	    		<div class="card">
+	    			<div class="card-header card-header-icon" data-background-color="rose">
+            			<i class="material-icons">
+            				<i aria-hidden="true" class="fa fa-arrow-down"></i>
+            			</i>
+        			</div>
+        			<h4 class="card-title" style="padding-top: 13px;">Select Your Wallet</h4>
+				    <div class="card-content">
+	                    <ul class="nav nav-pills nav-pills-warning">
+	                        <li class="active">
+	                            <a href="#pill3" data-toggle="tab" aria-expanded="true" (click)="selectWallet('trading')" style="text-transform: capitalize;"> Trading Wallet</a>
+	                        </li>
+	                        <li class="">
+	                            <a href="#pill3" data-toggle="tab" aria-expanded="false" (click)="selectWallet('incentive')" style="text-transform: capitalize;">Incentive Wallet</a>
+	                        </li>
+	                    </ul>
+	                    <div class="tab-content" style="margin-top: 0;">
+	                        <div class="tab-pane active" id="pill3">
+	                        	<form #walletType="ngForm" (ngSubmit)="walletType.form.valid && onTransfer()">
+		                        	<div class="input-group" style="width: 100%;">
+			                           	<div class="form-group">
+			                                <label class="control-label">
+			                                    Available Balance
+			                                    <small>*</small>
+			                                </label>
+											<input type="number" id="availableBal" name="availableBal" class="form-control" [(ngModel)]="wallet.availableBal" #availableBal= "ngModel" readonly disabled value="{{wallet.availableBal}}">
+				                            <span class="material-input"></span>
+				                        </div>
+				                    </div>
+	                        		<div class="input-group">
+	                        			<span class="input-group-addon" style="padding:0;position: relative;left:-7px;"><i class="material-icons">attach_money</i></span>
+	                            		<div class="form-group label-floating" [ngClass]="{ 'has-error': walletType.submitted && !walletAmt.valid }">
+			                                <label class="control-label">
+			                                    Amount
+			                                    <small>*</small>
+			                                </label>
+			                                <input type="number" id="walletAmt" name="walletAmt" class="form-control" required [(ngModel)]="wallet.amount" #walletAmt= "ngModel" min="0" oninput="validity.valid||(value='');">
+			                                <span class="material-input"></span>
+				                        </div>
+				                    </div>
+				                    <div class="form-footer text-right">
+				                    	<button class="btn btn-rose smallcap">Transfer</button>
+				                    </div>
+				                </form>
+	                        </div>
+	                    </div>
+	       			</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="card">
+	    			<div class="card-header card-header-icon" data-background-color="rose">
+            			<i class="material-icons">
+            				<i aria-hidden="true" class="fa fa-arrow-down"></i>
+            			</i>
+        			</div>
+        			<h4 class="card-title" style="padding-top: 13px;">Select Your Wallet</h4>
+        			<div class="row">
+        				<div class="col-md-8">
+		        			<div class="card crd-custm" style="opacity: 1;">
+		                   		<div class="card-image" attr.data-background-color="{{purchaseWallet.color}}">
+		                        	<a href="javascript:void(0);"> 
+		                       			<img class="img" src="assets/img/{{purchaseWallet.img}}.png">
+		                       		</a>
+		 						 	<div class="ripple-container"></div>
+		 						</div>
+		                        <div class="card-content crd-con">
+		                            <h4 class="card-title text-center">{{purchaseWallet.title}}</h4>
+		                            <h4 class="text-center crd-val"> <i aria-hidden="true" class="fa fa-usd"></i> {{purchaseWallet.value}} </h4>
+		                        </div>
+		                	</div>
+		                </div>
+		            </div>
+				</div>
+			</div>
+	    </div>
+	</div>
+</div>

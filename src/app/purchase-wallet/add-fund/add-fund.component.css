@@ -1,0 +1,34 @@
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.box2{
+    padding-left: 16px;
+}
+.button2{ 
+    margin: -33px 3px;
+    float: right;
+    padding: 5px;
+}
+._contentwiz{
+  min-height: auto !important;
+}
+
+@media only screen and (max-width: 500px) {
+   .button2 {
+    margin: -30px 3px;
+    margin-right: -179px;
+    padding: 5px;
+}
+}
+._modbox{
+      border: 1px solid gray;
+}
+._modlcstmhead{
+  padding-top: 8px;
+}

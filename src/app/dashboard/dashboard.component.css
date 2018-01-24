@@ -1,0 +1,57 @@
+p.card-title{
+	font-size: 24px;
+}
+
+.acc-profile span{
+	text-transform: uppercase;
+}
+
+.referral .form-group{
+	margin: 0 !important;
+}
+
+.acc-profile .row {
+    margin: 3px auto;
+}
+
+.card-product .card-image{
+	min-height: auto;
+}
+.scrollbar
+{
+	max-height: 381px;
+	height: 330px;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.db-top-loader{
+	display: block;
+	height: 100px;
+	width: 100%;
+}
+
+.db-referral-loader{
+	display: block;
+	height: 300px;
+	width: 100%;
+}
+
+.db-list-loader{
+	display: block;
+	height: 500px;
+	width: 100%;
+}
+
+.db-income-loader{
+	display: block;
+	height: 88px;
+	width: 100%;
+}
+
+.db-wallet-loader{
+	display: block;
+	height: 250px;
+	width: 100%;
+}
+

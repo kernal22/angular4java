@@ -1,0 +1,50 @@
+<nav #navbar class="navbar navbar-transparent navbar-absolute">
+    <div class="container-fluid">
+        <div class="navbar-minimize">
+            <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
+                <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+                <i class="material-icons visible-on-sidebar-mini">view_list</i>
+            </button>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" (click)="sidebarToggle()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{getPath()}}"> {{getTitle()}} </a>
+            <div class="pull-right nav-infos">
+                <span>1 btc = <i class="fa fa-usd" aria-hidden="true"></i> {{_btc}}</span>
+                <span>1 eth = <i class="fa fa-usd" aria-hidden="true"></i> {{_eth}}</span>
+                <span class="timer">0{{_min}} : {{_sec < 10 ? '0'+_sec : _sec}}</span>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <div (window:resize)="onResize($event)">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="assets/img/avatars/{{common.pic ? common.pic : 'default-avatar'}}.jpg" style="width: 35px;border-radius: 50%;border: 2px solid #fff;box-shadow: 0 0 10px 1px #777;"/>
+                            <p class="hidden-lg hidden-md">Profile</p> 
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a [routerLink]= "['/profile/edit-profile']">Edit Profile</a>
+                            </li>
+                            <li>
+                                <a [routerLink]= "['/profile/change-password']">Change Password</a>
+                            </li>
+                            <li>
+                                <a (click) = "onLogout()" href="javascript:void(0)" >Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="separator hidden-lg hidden-md"></li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</nav>

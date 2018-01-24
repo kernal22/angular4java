@@ -1,0 +1,15 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.crd-custm .crd-con{
+	padding: 5px 20px;
+    position: relative;
+}
+.crd-custm ._customc{
+	margin-top: -13px;
+    margin-bottom: 0px;
+}
+
+

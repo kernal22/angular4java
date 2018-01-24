@@ -1,0 +1,26 @@
+.card-pricing .icon.icon-custm {
+    color: orange;
+}
+._custmtitle{
+	margin-top: 0px;
+	font-size: 17px;
+	color: #fff;
+}
+._custmtitlef{
+	margin-top: 0px;
+	font-size: 17px;
+	margin-bottom: 0px !important;
+	
+}
+._cstmcss{
+	margin-bottom: 0px !important;
+}
+._comon{
+	background-repeat: repeat-x;
+ 	height: 22px;
+}
+._btmimg{
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}

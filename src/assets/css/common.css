@@ -1,0 +1,29 @@
+.smallcap{
+	text-transform: capitalize;
+}
+
+.full-content{
+	visibility: hidden;
+}
+
+.table-responsive{
+	min-height: 250px;
+}
+
+table.table{
+	position: relative;
+}
+
+.table-loader{
+	position: absolute;
+	display: block;
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 50px 30px #fff;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate( -50%, -50% );
+	-moz-transform: translate( -50%, -50% );
+	transform: translate( -50%, -50% );
+}

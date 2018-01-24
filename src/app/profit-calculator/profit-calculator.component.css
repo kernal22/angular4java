@@ -1,0 +1,83 @@
+._slidecstm .noUi-handle.noUi-handle-lower{
+      z-index: 4;
+    background: #e91e63;
+    border: #e91e63;
+}
+._slidecstm .noUi-origin{
+  height: 5px;
+  border-radius: 30px;
+}
+._slidecstm{
+  height: 5px;
+  background: #69c374;
+  border-radius: 60px;
+}
+.indicatorContainerWrap,#indicatorContainer,#indicatorContainerInfinity, #indicatorContainerUltimate{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 200px
+}
+.prgLogo{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 500;
+}
+.card._cardc{
+	margin: 0 0;
+}
+.card._cardc ._navcstm{
+	margin-top: 0; 
+}
+.tab-content._tab-content-cstm{
+ margin-top: 0; 
+}
+.prgLogo.days{
+	top: 45%;
+	left: 50%;
+	font-size: 26px;
+	font-weight: 400;
+}
+.tab-pane ._tabhead{
+	text-transform: none;
+}
+._slidecstm .noUi-tooltip::before{
+    content: " \0024";
+    font-weight: bold;
+}
+.nav-pills.nav-pills-info._navcstm > li.active > a.tab11{
+  background-color: rgb(233, 138, 28);
+}
+.nav-pills.nav-pills-info._navcstm > li.active > a.tab22{
+  background-color: rgb(130, 212, 19);
+}
+.nav-pills.nav-pills-info._navcstm > li.active > a.tab33{
+  background-color: rgb(44, 169, 227);
+}
+._custmpills{
+     width: 65%;
+    min-width: 200px;
+    margin: 20px auto;
+}
+._custmpills > li{
+  width: 49%;
+}
+.vibratespan{ 
+    animation: shake 2.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% { transform: translateX(3px) }
+  3% { transform: translateX(-3px)  }
+  6% { transform: translateX(-5px) }
+  9% { transform: translateX(5px) }
+  12% { transform: translateX(3px) }
+  15% { transform: translateX(-3px)  }
+  18% { transform: translateX(-5px) }
+  21% { transform: translateX(5px)  }
+  24% { transform: translateX(-3px) }
+  27% { transform: translateX(3px) }
+  30% { transform: translateX(3px)  }
+}

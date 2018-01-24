@@ -1,0 +1,31 @@
+.nav-infos{
+	display: block;
+	height: 50px;
+}
+.nav-infos span{
+	display: inline-block;
+    line-height: 3.5;
+    height: inherit;
+    font-size: 18px;
+    margin: 0 11px;
+}
+
+
+@media only screen and (min-width: 1000px){
+	.navbar-header {
+		width: 83%;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.nav-infos span{
+		font-size: 16px;
+		line-height: 3.5;
+	}
+}
+
+@media only screen and (max-width: 375px){
+	.nav-infos span{
+		font-size: 13px;
+	}
+}

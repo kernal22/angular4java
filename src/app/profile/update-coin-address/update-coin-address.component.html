@@ -1,0 +1,110 @@
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModal2Label">An OTP has been send to your mail</h3>
+      </div>
+      <div class="modal-body">
+      
+        <form [formGroup]="otpTransfer" style="overflow: hidden;">
+            <div class="form-group label-floating">
+                <label class="control-label">Enter OTP...</label>
+                <input type="text" class="form-control" formControlName="otpVal" >
+            </div>
+            
+            <button class="btn btn-fill btn-primary pull-left" [disabled]="!otpTransfer.value.otpVal" (click)="sendOTP()">Submit OTP</button>
+            <button class="btn btn-fill btn-default pull-right" [disabled]="resendBtn" (click)="resendOTP()">Resend OTP</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">attach_money</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Change Bitcoin Wallet Address
+                        </h4>
+                        <form [formGroup]="btcAddress">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating" [ngClass]="displayFieldCss(btcAddress, 'address')">
+                                        <label class="control-label">Bitcoin Address</label>
+                                        <input type="text" class="form-control" formControlName="address">
+                                        <app-field-error-display [displayError]="isFieldValid(btcAddress, 'address')" errorMsg="Bitcoin Address is required">
+                                        </app-field-error-display>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating" [ngClass]="displayFieldCss(btcAddress, 'password')">
+                                        <label class="control-label">Wallet Password</label>
+                                        <input type="password" class="form-control" formControlName="password">
+                                        <app-field-error-display [displayError]="isFieldValid(btcAddress, 'password')" errorMsg="Wallet Password is required">
+                                        </app-field-error-display>
+                                    </div>
+                                </div>
+                            </div> -->
+                            
+                            <button type="submit" class="btn btn-rose pull-right smallcap" (click)="onUpdate('btc')">Update Bitcoin Address</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="purple">
+                        <i class="material-icons">attach_money</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Change Ethereum Wallet Address
+                        </h4>
+                        <form [formGroup]="ethAddress">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating" [ngClass]="displayFieldCss(ethAddress, 'address')">
+                                        <label class="control-label">Ethereum Address</label>
+                                        <input type="text" class="form-control" formControlName="address">
+                                        <app-field-error-display [displayError]="isFieldValid(ethAddress, 'address')" errorMsg="Ethereum Address is required">
+                                        </app-field-error-display>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating" [ngClass]="displayFieldCss(ethAddress, 'password')">
+                                        <label class="control-label">Wallet Password</label>
+                                        <input type="password" class="form-control" formControlName="password">
+                                        <app-field-error-display [displayError]="isFieldValid(ethAddress, 'password')" errorMsg="Wallet Password is required">
+                                        </app-field-error-display>
+                                    </div>
+                                </div>
+                            </div> -->
+                            
+                            <button type="submit" class="btn btn-primary pull-right smallcap" (click)="onUpdate('eth')">Update Ethereum Address</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            
+         </div>
+     </div>
+</div>

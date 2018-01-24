@@ -1,0 +1,25 @@
+
+  <div class="content table-responsive">
+    <table class="table">
+      
+        <thead *ngIf="data?.headerRow">
+          <tr>
+            <th *ngFor="let col of data?.headerRow" [ngClass]="{'text-right': (col === data.headerRow[data.headerRow.length - 1]) }"> {{col}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data?.dataRows">
+
+            <td *ngFor="let data of row" [ngClass]="{'text-right': (data === row[row.length - 1]) }" [innerHTML]="data | keepHtml" ></td>
+            
+          </tr>
+        </tbody>
+        <tfoot *ngIf="data?.footerRow">
+          <tr>
+            <th *ngFor="let col of data?.footerRow" [ngClass]="{'text-right': (col === data.footerRow[data.footerRow.length - 1]) }"> {{col}} </th>
+          </tr>
+        </tfoot>
+      
+    </table>
+
+  </div>

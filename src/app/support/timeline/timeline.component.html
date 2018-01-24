@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="card card-plain" style="margin: 0 0">
+                    <div class="card-content" style="padding: 0 0">
+                        <ul class="timeline">
+                            <li *ngFor="let chat of fullChat" [ngClass]="{'timeline-inverted': (chat.user==='admin')}" style="margin-bottom: 0">
+                                <div *ngIf="chat.user==='admin'" class="timeline-badge success _cstmbadgesuccess">
+                                    <i class="material-icons" style="font-size: 18px">comment</i>
+                                </div>
+                                <div *ngIf="chat.user!=='admin'" class="timeline-badge warning _cstmbadgewarning">
+                                    <i class="material-icons" style="font-size: 18px">chat</i>
+                                </div>
+                                <div class="timeline-panel" style="padding: 5px;">
+                                    <div class="timeline-heading" style="margin-bottom: 0">
+                                        <span *ngIf="chat.user==='admin'" class="label label-success" style="padding: 1px 4px">Support</span>
+                                        <span *ngIf="chat.user!=='admin'" class="label label-warning" style="padding: 1px 4px">User</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p style="padding-left: 10px; padding-top: 5px;">{{ chat.talk }}</p>
+                                        <p class="pull-right">{{ chat.replyTime }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <textarea class="form-control" rows="2" cols="2" name="reply" [(ngModel)]="reply"></textarea>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <button class="btn btn-rose btn-md" (click)="onReply(reply)">Reply</button> 
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

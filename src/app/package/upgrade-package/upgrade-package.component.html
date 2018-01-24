@@ -1,0 +1,35 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div *ngIf="!packageTitle" class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div>
+        <div class="row full-content">
+            <div class="col-md-4" *ngFor= "let package of packageTitle">
+                <div class="card card-pricing card-raised" style="border-radius: 20px;">
+                    <div class="card-title _custmtitle" [ngStyle]="{ 'border-top-left-radius': '20px', 'border-top-right-radius': '20px'}">
+                        <h3 [ngStyle]="{ 'background-color': package.color, 'margin-bottom': '0px', 'border-top-left-radius': '20px', 'border-top-right-radius': '20px', 'padding-top': '10px'}">{{ package.packname}}</h3>
+                        <div class="_comon" [ngStyle]=" {'background-image': 'url(assets/img/qr/'+package.packname+'-pack.png)' }">
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="icon" [ngStyle]= "{ 'color': package.color}">
+                            <i class="material-icons" [ngStyle]= "{ 'border-color': package.color, 'border-width': '3px'}">{{ package.icon}}</i>
+                        </div>
+                        <h5 class="card-title" style="margin-top: 15px;" [ngStyle]= "{ 'color': '', 'font-size': '24px'}"><i class="fa fa-{{package.valuein}}" aria-hidden="true"></i> {{ package.from}} - <i class="fa fa-{{package.valuein}}" aria-hidden="true"></i> {{package.to }}</h5>
+                        <h5 class="_cstmcss" style=" margin-bottom: 0px">ROI - <span [ngStyle]= "{ 'color': package.color, 'font-weight': 'bold' }">{{ package.roipercent}}%</span></h5>
+                        <h5 class="_cstmcss" style=" margin-bottom: 0px">Days - <span [ngStyle]= "{ 'color': package.color, 'font-weight': 'bold' }">{{ package.roidays }}</span></h5>
+                        <h5 class="_cstmcss" style=" margin-bottom: 0px">Capping - <span [ngStyle]= "{ 'color': package.color, 'font-weight': 'bold' }"><i class="fa fa-{{package.valuein}}" aria-hidden="true"></i> {{ package.capping }}</span></h5>
+                    </div>
+                    <div class="_comon _btmimg" [ngStyle]=" {'background-image': 'url(assets/img/qr/'+package.packname+'-pack.png)'}">
+                    </div>
+                    <div class="card-title _custmtitlef" [ngStyle]= "{ 'background-color': package.color, 'border-bottom-left-radius': '20px', 'border-bottom-right-radius': '20px', 'padding-bottom': '8px'}">
+                      <a (click)="purchasePlan(package.packid, package.packname)" class="btn  btn-round smallcap" [ngStyle]= "{ 'background-color': '#f25252', 'color': '#fff'}">Buy Now</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

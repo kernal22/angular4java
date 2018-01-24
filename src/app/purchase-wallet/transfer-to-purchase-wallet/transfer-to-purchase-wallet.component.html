@@ -1,0 +1,81 @@
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal4Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModal4Label">An OTP has been send to your mail</h3>
+      </div>
+      <div class="modal-body">
+      	<form [formGroup]="otpTransfer" style="overflow: hidden;">
+            <div class="form-group label-floating">
+                <label class="control-label">Enter OTP...</label>
+                <input type="text" class="form-control" formControlName="otpVal" >
+            </div>
+            <button class="btn btn-fill btn-primary pull-left" [disabled]="!otpTransfer.value.otpVal" (click)="sendOTP()">Submit OTP</button>
+            <button class="btn btn-fill btn-default pull-right" [disabled]="resendBtn" (click)="resendOTP()">Resend OTP</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-content">
+    <div class="container-fluid">
+    	<div class="card">
+		    <form (ngSubmit)= 'f.form.valid && onFundTransfer()' #f='ngForm' novalidate method="post">
+		        <div class="card-header card-header-icon" data-background-color="rose">
+		            <i class="material-icons"><i class="fa fa-arrow-up" aria-hidden="true"></i></i>
+		        </div>
+				<div class="card-content">
+		            <h4 class="card-title">Transfer To Purchase</h4>
+					<div class="form-group label-floating">
+		                <div class="row">
+		                	<div class="col-md-4" *ngFor="let data of allWallets">
+			                    <div class="card crd-custm">
+			                        <div class="card-image" attr.data-background-color="{{data.color}}">
+			                            <a href="javascript:void(0);" >
+			                                <img class="img" src="assets/img/{{data.img}}.png">
+			                            </a>
+			                        </div>
+			                        <div class="card-content crd-con">
+			                            <h4 class="card-title text-center">{{data.title}}</h4>
+			                            <h4 class="text-center _customc"> <i class="fa fa-usd" aria-hidden="true"></i> {{data.value}}</h4>
+			                        </div>
+			                    </div>
+		                	</div>
+							<div class="col-md-6" style="margin-left: 80px;">
+			                	<div class="row">
+			                		<div class="col-md-6">
+				                		<div class="form-group label-floating" [ngClass]="{ 'has-error': f.submitted && !userid.valid }">
+							                <label  for="userid" class="control-label">User ID
+							                    <span class="star">*</span>
+							                </label>
+							                <input type="text" id="userid" name="userid" class="form-control" required [(ngModel)]="model.userid" #userid= "ngModel" (blur)="getUserName($event.target)">
+							                <div *ngIf="f.submitted && userid.invalid" class="help-block">User ID is required</div>
+						            	</div>
+			                		</div>
+			                		<div class="col-md-6">
+			                			<div class="form-group label-floating">
+							                <label  for="username" class="control-label">User Name
+							                </label>
+							                <input type="text" id="username" name="username" class="form-control" required [(ngModel)]="model.username" #username= "ngModel" readonly disabled>
+						            	</div>
+			                		</div>
+			                	</div>
+			                	<div class="form-group label-floating" [ngClass]="{ 'has-error': f.submitted && !amount.valid }">
+					                <label  for="amount" class="control-label">Amount
+					                    <span class="star">*</span>
+					                </label>
+					                <input type="number" id="amount" name="amount" class="form-control" required [(ngModel)]="model.amount" #amount= "ngModel" min="0" oninput="validity.valid||(value='');">
+					                <div *ngIf="f.submitted && amount.invalid" class="help-block">Amount is required</div>
+					            </div>
+			                	<div class="form-group">
+				                    <button type="submit" class="btn btn-rose btn-fill btn-wd smallcap pull-right" >Fund Transfer</button>
+				                </div>
+			                </div>
+			              </div>
+		            </div>
+				</div>
+		    </form>
+		</div>
+    </div>
+</div>

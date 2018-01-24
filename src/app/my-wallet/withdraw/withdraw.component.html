@@ -1,0 +1,265 @@
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal3Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModal3Label">An OTP has been send to your mail</h3>
+      </div>
+      <div class="modal-body">
+      	<form [formGroup]="otpTransfer" style="overflow: hidden;">
+            <div class="form-group label-floating">
+                <label class="control-label">Enter OTP...</label>
+                <input type="text" class="form-control" formControlName="otpVal" >
+            </div>
+            <button class="btn btn-fill btn-primary pull-left" [disabled]="!otpTransfer.value.otpVal" (click)="sendOTP()">Submit OTP</button>
+            <button class="btn btn-fill btn-default pull-right" [disabled]="resendBtn" (click)="resendOTP()">Resend OTP</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf='allWallets'>
+            <div class="col-md-6">
+                <div class="card">
+                    <form #trade="ngForm" (ngSubmit)="trade.form.valid && onWithdrawRequestTradingWallet()">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+	            			<i class="material-icons">
+	            				<i aria-hidden="true" class="fa fa-arrow-down"></i>
+	            			</i>
+	        			</div>
+            			<h4 class="card-title" style="padding-top: 13px;">Withdrawal From {{allWallets['0'].title}}</h4>
+           			    <div class="row">
+            				<div class=" col-md-8">
+            					<div class="card crd-custm" style="opacity: 1;">
+		                       		 <div class="card-image" attr.data-background-color="{{allWallets['0'].color}}">
+		                            	<a href="javascript:void(0);"> 
+                                   			<img class="img" src="assets/img/{{allWallets['0'].img}}.png">
+		                           		</a>
+             						 	<div class="ripple-container"></div>
+             						</div>
+			                        <div class="card-content crd-con">
+			                            <h4 class="card-title text-center">{{allWallets['0'].title}}</h4>
+			                            <h4 class="text-center crd-val"> <i aria-hidden="true" class="fa fa-usd"></i> {{allWallets['0'].value}} </h4>
+			                        </div>
+		                    	</div>
+            				</div>
+           				 </div>
+            			 <h4 class="box2"> Select Your Wallet Address</h4>
+           					 <div class="card-content">
+                       			 <ul class="nav nav-pills nav-pills-warning">
+		                            <li class="active">
+		                                <a href="#pill1" data-toggle="tab" aria-expanded="true" (click)="conversionOnKeyPressBTC(1)"> Your BTC Address</a>
+		                            </li>
+		                            <li class="">
+		                                <a href="#pill2" data-toggle="tab" aria-expanded="false" (click)="conversionOnKeyPressETH(1)">Your ETH Address</a>
+		                            </li>
+		                        </ul>
+		                        <div class="tab-content">
+		                            <div class="tab-pane active" id="pill1">
+		                               <div class="form-group">
+			                                <label class="control-label">
+			                                    Your BTC Address
+			                                    <small>*</small>
+			                                </label>
+			                                <input type="text" id="btcaddress" name="btcaddress" class="form-control" [(ngModel)]="model.btcaddress" #btcaddress= "ngModel" readonly disabled>
+			                                <button  class="btn btn-primary btn-round button2 smallcap" *ngIf="!model.btcaddress" [routerLink]="['/profile/update-wallet-address']" > Update Now<div class="ripple-container"></div>
+			                                </button>
+			                            		<span class="material-input"></span>
+		                        		</div>
+		                        		<div class="row">
+			                            	<div class="col-md-6">
+			                            		<div class="input-group">
+			                            			<span class="input-group-addon" style="padding: 0; position: relative; top: 7px;"><i class="material-icons">attach_money</i></span>
+				                            		<div class="form-group label-floating" [ngClass]="{ 'has-error': trade.submitted&& !amount.valid }">
+						                                <label class="control-label">
+						                                    Amount
+						                                    <small>*</small>
+						                                </label>
+						                                <input type="number" id="amount" name="amount" class="form-control" required [(ngModel)]="model.amount" #amount= "ngModel" (keyup)="conversionOnKeyPressBTC(1)" min="0" oninput="validity.valid||(value='');">
+						                                <div *ngIf="trade.submitted && amount.invalid" class="help-block">Amount is required</div>
+							                            <span class="material-input"></span>
+							                        </div>
+							                    </div>
+			                            	</div>
+			                            	<div class="col-md-6" >
+			                            		<div class="form-group label-floating">
+					                                <label class="control-label">
+					                                    BTC Equivalent
+					                                    <small>*</small>
+					                                </label>
+					                                <input type="number" id="btcEqui" name="btcEqui" class="form-control" required [ngModel]="model.btcEqui" #btcEqui= "ngModel" disabled min="0" oninput="validity.valid||(value='');">
+					                                <span class="material-input"></span>
+						                        </div>
+			                            	</div>
+			                            </div>
+		                            </div>
+		                            <div class="tab-pane" id="pill2">
+		                               <div class="form-group">
+			                                <label class="control-label">
+			                                    Your ETH Address
+			                                    <small>*</small>
+			                                </label>
+			                                <input type="text" id="ethaddress" name="ethaddress" class="form-control" [(ngModel)]="model.ethaddress" #ethaddress= "ngModel" readonly disabled>
+			                                <button  class="btn btn-primary btn-round button2 smallcap" *ngIf="!model.ethaddress" [routerLink]="['/profile/update-wallet-address']"> Update Now<div class="ripple-container"></div></button>
+			                            	<span class="material-input"></span>
+		                            	</div>
+		                            	<div class="row">
+			                            	<div class="col-md-6">
+			                            		<div class="input-group">
+			                            			<span class="input-group-addon" style="padding: 0; position: relative; top: 7px;"><i class="material-icons">attach_money</i></span>
+				                            		<div class="form-group label-floating" [ngClass]="{ 'has-error': trade.submitted&& !amount.valid }">
+						                                <label class="control-label">
+						                                    Amount
+						                                    <small>*</small>
+						                                </label>
+						                                <input type="number" id="amount1" name="amount1" class="form-control" required [(ngModel)]="model.amount" #amount= "ngModel" (keyup)="conversionOnKeyPressETH(1)" min="0" oninput="validity.valid||(value='');">
+						                                <div *ngIf="trade.submitted && amount.invalid" class="help-block">Amount is required</div>
+							                            <span class="material-input"></span>
+							                        </div>
+							                    </div>
+			                            	</div>
+			                            	<div class="col-md-6" >
+			                            		<div class="form-group label-floating">
+					                                <label class="control-label">
+					                                    ETH Equivalent
+					                                    <small>*</small>
+					                                </label>
+					                                <input type="number" id="ethEqui" name="ethEqui" class="form-control" required [ngModel]="model.ethEqui" #ethEqui= "ngModel" disabled min="0" oninput="validity.valid||(value='');">
+					                                <span class="material-input"></span>
+						                        </div>
+			                            	</div>
+			                            </div>
+		                            </div>
+		                        </div>
+                    		</div>
+            				<div class="card-content">
+	                          	<div class="form-footer text-right">
+	                                <button type="submit" class="btn btn-rose btn-fill smallcap">Withdraw Request</button>
+	                            </div>
+	                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+            	<div class="card">
+                	<form #purchase="ngForm" (ngSubmit)="purchase.form.valid && onWithdrawRequestIncentiveWallet()">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+	            			<i class="material-icons"><i aria-hidden="true" class="fa fa-arrow-down"></i></i>
+                		</div>
+            			<h4 class="card-title" style="    padding-top: 13px;">Withdrawal From {{allWallets['1'].title}}</h4>
+            			<div class="row">
+            				<div class="col-md-8 ">
+              					<div class="card crd-custm" style="opacity: 1;">
+		                        	<div class="card-image" attr.data-background-color="{{allWallets['1'].color}}">
+		                            	<a href="javascript:void(0);">
+                                    		<img class="img" src="assets/img/{{allWallets['1'].img}}.png">
+		                            	</a>
+                						<div class="ripple-container"></div>
+                					</div>
+			                        <div class="card-content crd-con">
+			                            <h4 class="card-title text-center">{{allWallets['1'].title}}</h4>
+			                            <h4 class="text-center crd-val"> <i aria-hidden="true" class="fa fa-usd"></i> {{allWallets['1'].value}} </h4>
+			                        </div>
+		                    	</div>
+	                		</div>
+           				 </div>
+            			 <h4 class="box2"> Select Your Wallet Address</h4>
+           					 <div class="card-content">
+		                        <ul class="nav nav-pills nav-pills-warning">
+		                            <li class="active">
+		                                <a href="#pill3" data-toggle="tab" aria-expanded="true" (click)="conversionOnKeyPressBTC(2)"> Your BTC Address</a>
+		                            </li>
+		                            <li class="">
+		                                <a href="#pill4" data-toggle="tab" aria-expanded="false" (click)="conversionOnKeyPressETH(2)">Your ETH Address</a>
+		                            </li>
+		                        </ul>
+		                        <div class="tab-content">
+		                            <div class="tab-pane active" id="pill3">
+		                               <div class="form-group">
+			                                <label class="control-label">Your BTC Address
+					           					<small>*</small>
+			                                </label>
+				                            <input type="text" id="btcaddress2" name="btcaddress2" class="form-control" [(ngModel)]="user.btcaddress" #btcaddress2= "ngModel" readonly disabled>
+				                            <button  class="btn btn-primary btn-round button2 smallcap" *ngIf="!user.btcaddress" [routerLink]="['/profile/update-wallet-address']"> Update Now
+				                            </button>
+				                            <span class="material-input"></span>
+				                        </div>
+				                        <div class="row">
+			                            	<div class="col-md-6">
+			                            		<div class="input-group">
+			                            			<span class="input-group-addon" style="padding:0;position: relative;top:7px;"><i class="material-icons">attach_money</i></span>
+				                            		<div class="form-group label-floating" [ngClass]="{ 'has-error': trade.submitted&& !amount.valid }">
+						                                <label class="control-label">
+						                                    Amount
+						                                    <small>*</small>
+						                                </label>
+						                                <input type="number" id="amount2" name="amount2" class="form-control" required [(ngModel)]="user.amount" #amount2= "ngModel" (keyup)="conversionOnKeyPressBTC(2)" min="0" oninput="validity.valid||(value='');">
+						                                <div *ngIf="trade.submitted && amount2.invalid" class="help-block">Amount is required</div>
+							                            <span class="material-input"></span>
+							                        </div>
+							                    </div>
+			                            	</div>
+			                            	<div class="col-md-6" >
+			                            		<div class="form-group label-floating">
+					                                <label class="control-label">
+					                                    BTC Equivalent
+					                                    <small>*</small>
+					                                </label>
+					                                <input type="number" id="btcEqui1" name="btcEqui1" class="form-control" required [ngModel]="user.btcEqui" #btcEqui1= "ngModel" disabled min="0" oninput="validity.valid||(value='');">
+					                                <span class="material-input"></span>
+						                        </div>
+			                            	</div>
+			                            </div>
+		                            </div>
+		                            <div class="tab-pane" id="pill4">
+		                               <div class="form-group">
+			                                <label class="control-label">
+			                                    Your ETH Address
+			                                    <small>*</small>
+			                                </label>
+		                                	<input type="text" id="ethaddress2" name="ethaddress2" class="form-control" [(ngModel)]="user.ethaddress" #ethaddress2= "ngModel" readonly disabled>
+		                                	<button  class="btn btn-primary btn-round button2 smallcap" *ngIf="!user.ethaddress" [routerLink]="['/profile/update-wallet-address']"> Update Now<div class="ripple-container"></div></button>
+		                            		<span class="material-input"></span>
+		                            	</div>
+		                            	<div class="row">
+			                            	<div class="col-md-6">
+			                            		<div class="input-group">
+			                            			<span class="input-group-addon" style="padding:0;position: relative;top:7px;"><i class="material-icons">attach_money</i></span>
+				                            		<div class="form-group label-floating" [ngClass]="{ 'has-error': trade.submitted&& !amount.valid }">
+						                                <label class="control-label">
+						                                    Amount
+						                                    <small>*</small>
+						                                </label>
+						                                <input type="number" id="amount3" name="amount3" class="form-control" required [(ngModel)]="user.amount" #amount3= "ngModel" (keyup)="conversionOnKeyPressETH(2)" min="0" oninput="validity.valid||(value='');">
+						                                <div *ngIf="trade.submitted && amount3.invalid" class="help-block">Amount is required</div>
+							                            <span class="material-input"></span>
+							                        </div>
+							                    </div>
+			                            	</div>
+			                            	<div class="col-md-6" >
+			                            		<div class="form-group label-floating">
+					                                <label class="control-label">
+					                                    ETH Equivalent
+					                                    <small>*</small>
+					                                </label>
+					                                <input type="number" id="ethEqui1" name="ethEqui1" class="form-control" required [ngModel]="user.ethEqui" #ethEqui1= "ngModel" disabled min="0" oninput="validity.valid||(value='');">
+					                                <span class="material-input"></span>
+						                        </div>
+			                            	</div>
+			                            </div>
+		                            </div>
+		                        </div>
+                   			</div>
+	                        <div class="card-content">
+	                            <div class="form-footer text-right">
+	                                <button type="submit" class="btn btn-rose btn-fill smallcap">Withdraw Request</button>
+	                            </div>
+	                        </div>
+                    </form>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>

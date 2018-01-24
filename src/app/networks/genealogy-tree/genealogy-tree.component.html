@@ -1,0 +1,642 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div *ngIf="!treeUsers" class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div>
+        <div class="row full-content">
+            <div class="col-md-offset-3 tree-wrapper" style="position: relative;z-index: 110;">
+            <div class="col-xs-12 col-sm-12 col-md-12 tree">
+              <ul class="tree-ul" *ngIf="treeUsers">
+                <li class="tree-list top-circle">
+                  <a (click)="treeLoader(treeUsers['1'].userid)" class="orange-circle _user" data-tooltip="sticky1" style="position: relative;z-index: 100;" data-toggle="tooltip">
+                    <div class="container-fluid">
+                      <div class="row">
+                         <strong *ngIf="treeUsers['1'].username">{{treeUsers['1'].username}}</strong>
+                         <a href="javascript:void(0)" *ngIf="!treeUsers['1'].username" class="no-user"> Join Now</a>
+                      </div>
+                      <div class="row" style="margin-top: 2px;">
+                       <img [ngClass]="{'no-user-img': !treeUsers['1'].packname}" class="img-circle ng-scope" width="50" height="50" src="assets/img/users/{{treeUsers['1'].packname ? treeUsers['1'].packname : 'grey'}}.png" alt="No User" style="">
+                      </div>
+                    </div>
+                    <div class="_tooltip row" *ngIf="treeUsers['1'].tooltip">
+                      <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['1'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                          <div class="card-avatar">
+                              <a href="#pablo">
+                                  <img class="avatar" src="assets/img/avatars/{{treeUsers['1'].profileimg ? treeUsers['1'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                              </a>
+                          </div>
+                          <div class="card-content" >
+                              <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['1'].username}} <span class="pack" title="Package Name">({{treeUsers['1'].packname}})</span></h4>
+                              <div class="row">
+                                <div class="col-xs-6">
+                                  <div class="row" *ngFor="let tool of treeUsers['1'].tooltip.slice(0, treeUsers['1'].tooltip.length/2)">
+                                    <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                    <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                  </div>
+                                </div>
+                                <div class="col-xs-6" *ngFor="let tool of treeUsers['1'].tooltip.slice( treeUsers['1'].tooltip.length/2, treeUsers['1'].tooltip.length)">
+                                  <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                    <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                </div>
+                              </div>
+                              
+                          </div>
+                      </div>
+                    </div>
+                  </a>
+                  <ul class="level1">
+                    <li>
+                      <a (click)="treeLoader(treeUsers['2'].userid)" class="green-circle _user" data-tooltip="sticky2" style="position: relative;z-index: 99; ">
+                        <div class="container-fluid">
+                          <div class="row">
+                            
+                             <strong *ngIf="treeUsers['2'].username">{{treeUsers['2'].username}}</strong>
+                             <a href="javascript:void(0)" *ngIf="!treeUsers['2'].username" class="no-user"> Join Now</a>
+                          </div>
+                          <div class="row" style="margin-top: 2px;">
+                          <img [ngClass]="{'no-user-img': !treeUsers['2'].packname}" class="img-circle ng-scope" width="50" height="50" src="assets/img/users/{{treeUsers['2'].packname ? treeUsers['2'].packname : 'grey'}}.png"  alt="No User" style="">
+                          </div>
+                        </div>
+                        <div class="_tooltip row" *ngIf="treeUsers['2'].tooltip">
+                          <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['2'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                              <div class="card-avatar">
+                                  <a href="#pablo">
+                                      <img class="avatar" src="assets/img/avatars/{{treeUsers['2'].profileimg ? treeUsers['2'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                  </a>
+                              </div>
+                              <div class="card-content" >
+                                  <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['2'].username}}  <span class="pack" title="Package Name">({{treeUsers['2'].packname}})</span></h4>
+                                  <div class="row">
+                                    <div class="col-xs-6">
+                                      <div class="row" *ngFor="let tool of treeUsers['2'].tooltip.slice(0, treeUsers['2'].tooltip.length/2)">
+                                        <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                        <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                      </div>
+                                    </div>
+                                    <div class="col-xs-6" *ngFor="let tool of treeUsers['2'].tooltip.slice( treeUsers['2'].tooltip.length/2, treeUsers['2'].tooltip.length)">
+                                      <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                        <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                    </div>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                        </div>
+                      </a>
+                      <ul class="level2 right-circles">
+                        <li class="circle-list">
+                          <a (click)="treeLoader(treeUsers['4'].userid)" data-tooltip="sticky3" class="sea-circle _user" style="position: relative;z-index: 98;">
+                            <div class="container-fluid">
+                              <div class="row">
+                           
+                                <strong *ngIf="treeUsers['4'].username">{{treeUsers['4'].username}}</strong>
+                                <a href="javascript:void(0)" *ngIf="!treeUsers['4'].username" class="no-user"> Join Now</a>
+                              </div>
+                              <div class="row" style="margin-top: 2px;">
+                                <img [ngClass]="{'no-user-img': !treeUsers['4'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['4'].packname ? treeUsers['4'].packname : 'grey'}}.png"  alt="No User">
+                              </div>
+                            </div>
+                            <div class="_tooltip row" *ngIf="treeUsers['4'].tooltip">
+                              <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['4'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                  <div class="card-avatar">
+                                      <a href="#pablo">
+                                          <img class="avatar" src="assets/img/avatars/{{treeUsers['4'].profileimg ? treeUsers['4'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                      </a>
+                                  </div>
+                                  <div class="card-content" >
+                                      <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['4'].username}}  <span class="pack" title="Package Name">({{treeUsers['4'].packname}})</span></h4>
+                                      <div class="row">
+                                        <div class="col-xs-6">
+                                          <div class="row" *ngFor="let tool of treeUsers['4'].tooltip.slice(0, treeUsers['4'].tooltip.length/2)">
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-6" *ngFor="let tool of treeUsers['4'].tooltip.slice( treeUsers['4'].tooltip.length/2, treeUsers['4'].tooltip.length)">
+                                          <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                        </div>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                            </div>
+                          </a>
+                          <ul class="level3 right-circles">
+                            <li class="circle-list">
+                              <a (click)="treeLoader(treeUsers['8'].userid)" data-tooltip="sticky3" class="sea-circle _user" style="position: relative;z-index: 93;">
+                                <div class="container-fluid">
+                                  <div class="row">
+                               
+                                    <strong *ngIf="treeUsers['8'].username">{{treeUsers['8'].username}}</strong>
+                                    <a href="javascript:void(0)" *ngIf="!treeUsers['8'].username" class="no-user"> Join Now</a>
+                                  </div>
+                                  <div class="row" style="margin-top: 2px;">
+                                    <img [ngClass]="{'no-user-img': !treeUsers['8'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['8'].packname ? treeUsers['8'].packname : 'grey'}}.png"  alt="No User">
+                                  </div>
+                                </div>
+                                <div class="_tooltip row" *ngIf="treeUsers['8'].tooltip">
+                                  <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['8'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                      <div class="card-avatar">
+                                          <a href="#pablo">
+                                              <img class="avatar" src="assets/img/avatars/{{treeUsers['8'].profileimg ? treeUsers['8'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                          </a>
+                                      </div>
+                                      <div class="card-content" >
+                                          <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['8'].username}}  <span class="pack" title="Package Name">({{treeUsers['8'].packname}})</span></h4>
+                                          <div class="row">
+                                            <div class="col-xs-6">
+                                              <div class="row" *ngFor="let tool of treeUsers['8'].tooltip.slice(0, treeUsers['8'].tooltip.length/2)">
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                              </div>
+                                            </div>
+                                            <div class="col-xs-6" *ngFor="let tool of treeUsers['8'].tooltip.slice( treeUsers['8'].tooltip.length/2, treeUsers['8'].tooltip.length)">
+                                              <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                            <li>
+                              <a (click)="treeLoader(treeUsers['9'].userid)" data-tooltip="sticky4" class="sea-circle _user" style="position: relative;z-index: 92;">
+                                <div class="container-fluid">
+                                  <div class="row">
+                                   
+                                    <strong *ngIf="treeUsers['9'].username">{{treeUsers['9'].username}}</strong>
+                                    <a href="javascript:void(0)" *ngIf="!treeUsers['9'].username" class="no-user"> Join Now</a>
+                                  </div>
+                                  <div class="row" style="margin-top: 2px;">
+                                    <img  [ngClass]="{'no-user-img': !treeUsers['9'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['9'].packname ? treeUsers['9'].packname : 'grey'}}.png"  alt="No User">
+                                  </div>
+                                </div>
+                                <div class="_tooltip row" *ngIf="treeUsers['9'].tooltip">
+                                  <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['9'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                      <div class="card-avatar">
+                                          <a href="#pablo">
+                                              <img class="avatar" src="assets/img/avatars/{{treeUsers['9'].profileimg ? treeUsers['9'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                          </a>
+                                      </div>
+                                      <div class="card-content" >
+                                          <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['9'].username}}  <span class="pack" title="Package Name">({{treeUsers['9'].packname}})</span></h4>
+                                          <div class="row">
+                                            <div class="col-xs-6">
+                                              <div class="row" *ngFor="let tool of treeUsers['9'].tooltip.slice(0, treeUsers['9'].tooltip.length/2)">
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                              </div>
+                                            </div>
+                                            <div class="col-xs-6" *ngFor="let tool of treeUsers['9'].tooltip.slice( treeUsers['9'].tooltip.length/2, treeUsers['9'].tooltip.length)">
+                                              <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a (click)="treeLoader(treeUsers['5'].userid)" data-tooltip="sticky4" class="sea-circle _user" style="position: relative;z-index: 97;">
+                            <div class="container-fluid">
+                              <div class="row">
+                               
+                                <strong *ngIf="treeUsers['5'].username">{{treeUsers['5'].username}}</strong>
+                                <a href="javascript:void(0)" *ngIf="!treeUsers['5'].username" class="no-user"> Join Now</a>
+                              </div>
+                              <div class="row" style="margin-top: 2px;">
+                                <img  [ngClass]="{'no-user-img': !treeUsers['5'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['5'].packname ? treeUsers['5'].packname : 'grey'}}.png"  alt="No User">
+                              </div>
+                            </div>
+                            <div class="_tooltip row" *ngIf="treeUsers['5'].tooltip">
+                              <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['5'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                  <div class="card-avatar">
+                                      <a href="#pablo">
+                                          <img class="avatar" src="assets/img/avatars/{{treeUsers['5'].profileimg ? treeUsers['5'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                      </a>
+                                  </div>
+                                  <div class="card-content" >
+                                      <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['5'].username}}  <span class="pack" title="Package Name">({{treeUsers['5'].packname}})</span></h4>
+                                      <div class="row">
+                                        <div class="col-xs-6">
+                                          <div class="row" *ngFor="let tool of treeUsers['5'].tooltip.slice(0, treeUsers['5'].tooltip.length/2)">
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-6" *ngFor="let tool of treeUsers['5'].tooltip.slice( treeUsers['5'].tooltip.length/2, treeUsers['5'].tooltip.length)">
+                                          <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                        </div>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                            </div>
+                            
+                          </a>
+                          <ul class="level3 right-circles">
+                            <li class="circle-list">
+                              <a (click)="treeLoader(treeUsers['10'].userid)" data-tooltip="sticky3" class="sea-circle _user" style="position: relative;z-index: 91;">
+                                <div class="container-fluid">
+                                  <div class="row">
+                               
+                                    <strong *ngIf="treeUsers['10'].username">{{treeUsers['10'].username}}</strong>
+                                    <a href="javascript:void(0)" *ngIf="!treeUsers['10'].username" class="no-user"> Join Now</a>
+                                  </div>
+                                  <div class="row" style="margin-top: 2px;">
+                                    <img [ngClass]="{'no-user-img': !treeUsers['10'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['10'].packname ? treeUsers['10'].packname : 'grey'}}.png"  alt="No User">
+                                  </div>
+                                </div>
+                                <div class="_tooltip row" *ngIf="treeUsers['10'].tooltip">
+                                  <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['10'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                      <div class="card-avatar">
+                                          <a href="#pablo">
+                                              <img class="avatar" src="assets/img/avatars/{{treeUsers['10'].profileimg ? treeUsers['10'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                          </a>
+                                      </div>
+                                      <div class="card-content" >
+                                          <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['10'].username}}  <span class="pack" title="Package Name">({{treeUsers['10'].packname}})</span></h4>
+                                          <div class="row">
+                                            <div class="col-xs-6">
+                                              <div class="row" *ngFor="let tool of treeUsers['10'].tooltip.slice(0, treeUsers['10'].tooltip.length/2)">
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                              </div>
+                                            </div>
+                                            <div class="col-xs-6" *ngFor="let tool of treeUsers['10'].tooltip.slice( treeUsers['10'].tooltip.length/2, treeUsers['10'].tooltip.length)">
+                                              <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                            <li>
+                              <a (click)="treeLoader(treeUsers['11'].userid)" data-tooltip="sticky4" class="sea-circle _user" style="position: relative;z-index: 90;">
+                                <div class="container-fluid">
+                                  <div class="row">
+                                   
+                                    <strong *ngIf="treeUsers['11'].username">{{treeUsers['11'].username}}</strong>
+                                    <a href="javascript:void(0)" *ngIf="!treeUsers['11'].username" class="no-user"> Join Now</a>
+                                  </div>
+                                  <div class="row" style="margin-top: 2px;">
+                                    <img  [ngClass]="{'no-user-img': !treeUsers['11'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['11'].packname ? treeUsers['11'].packname : 'grey'}}.png"  alt="No User">
+                                  </div>
+                                </div>
+                                <div class="_tooltip row" *ngIf="treeUsers['11'].tooltip">
+                                  <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['11'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                      <div class="card-avatar">
+                                          <a href="#pablo">
+                                              <img class="avatar" src="assets/img/avatars/{{treeUsers['11'].profileimg ? treeUsers['11'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                          </a>
+                                      </div>
+                                      <div class="card-content" >
+                                          <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['11'].username}}  <span class="pack" title="Package Name">({{treeUsers['11'].packname}})</span></h4>
+                                          <div class="row">
+                                            <div class="col-xs-6">
+                                              <div class="row" *ngFor="let tool of treeUsers['11'].tooltip.slice(0, treeUsers['11'].tooltip.length/2)">
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                              </div>
+                                            </div>
+                                            <div class="col-xs-6" *ngFor="let tool of treeUsers['11'].tooltip.slice( treeUsers['11'].tooltip.length/2, treeUsers['11'].tooltip.length)">
+                                              <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a (click)="treeLoader(treeUsers['3'].userid)" data-tooltip="sticky5" class="green-circle _user" style="position: relative;z-index: 96;">
+                        <div class="container-fluid">
+                          <div class="row">
+                            
+                            <strong *ngIf="treeUsers['3'].username">{{treeUsers['3'].username}}</strong>
+                                <a href="javascript:void(0)" *ngIf="!treeUsers['3'].username" class="no-user"> Join Now</a>
+                          </div>
+                          <div class="row" style="margin-top: 2px;">
+                            <img [ngClass]="{'no-user-img': !treeUsers['3'].packname}" class="img-circle ng-scope" width="50" height="50" src="assets/img/users/{{treeUsers['3'].packname ? treeUsers['3'].packname : 'grey'}}.png"  alt="No User" style="">
+                          </div>
+                        </div>
+                        <div class="_tooltip row" *ngIf="treeUsers['3'].tooltip">
+                          <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['3'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                              <div class="card-avatar">
+                                  <a href="#pablo">
+                                      <img class="avatar" src="assets/img/avatars/{{treeUsers['3'].profileimg ? treeUsers['3'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                  </a>
+                              </div>
+                              <div class="card-content" >
+                                  <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['3'].username}}  <span class="pack" title="Package Name">({{treeUsers['3'].packname}})</span></h4>
+                                  <div class="row">
+                                    <div class="col-xs-6">
+                                      <div class="row" *ngFor="let tool of treeUsers['3'].tooltip.slice(0, treeUsers['3'].tooltip.length/2)">
+                                        <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                        <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                      </div>
+                                    </div>
+                                    <div class="col-xs-6" *ngFor="let tool of treeUsers['3'].tooltip.slice( treeUsers['3'].tooltip.length/2, treeUsers['3'].tooltip.length)">
+                                      <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                        <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                    </div>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                        </div>
+                      </a>
+                      <ul class="level2 right-circles">
+                        <li class="circle-list">
+                          <a (click)="treeLoader(treeUsers['6'].userid)" data-tooltip="sticky6" class="sea-circle _user" style="position: relative;z-index: 95;">
+                            <div class="container-fluid">
+                              <div class="row">
+                                 <strong *ngIf="treeUsers['6'].username">{{treeUsers['6'].username}}</strong>
+                                <a href="javascript:void(0)" *ngIf="!treeUsers['6'].username" class="no-user"> Join Now</a>
+                              </div>
+                              <div class="row" style="margin-top: 2px;">
+
+                              <img [ngClass]="{'no-user-img': !treeUsers['6'].packname}" class="img-circle ng-scope" width="50" height="50" src="assets/img/users/{{treeUsers['6'].packname ? treeUsers['6'].packname : 'grey'}}.png" alt="No User" style="">
+
+                              </div>
+                            </div>
+                            <div class="_tooltip row" *ngIf="treeUsers['6'].tooltip">
+                              <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['6'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                  <div class="card-avatar">
+                                      <a href="#pablo">
+                                          <img class="avatar" src="assets/img/avatars/{{treeUsers['6'].profileimg ? treeUsers['6'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                      </a>
+                                  </div>
+                                  <div class="card-content" >
+                                      <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['6'].username}}  <span class="pack" title="Package Name">({{treeUsers['6'].packname}})</span></h4>
+                                      <div class="row">
+                                        <div class="col-xs-6">
+                                          <div class="row" *ngFor="let tool of treeUsers['6'].tooltip.slice(0, treeUsers['6'].tooltip.length/2)">
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-6" *ngFor="let tool of treeUsers['6'].tooltip.slice( treeUsers['6'].tooltip.length/2, treeUsers['6'].tooltip.length)">
+                                          <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                        </div>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                            </div>
+                          </a>
+                          <ul class="level3 right-circles">
+                            <li class="circle-list">
+                              <a (click)="treeLoader(treeUsers['12'].userid)" data-tooltip="sticky3" class="sea-circle _user" style="position: relative;z-index: 89;">
+                                <div class="container-fluid">
+                                  <div class="row">
+                               
+                                    <strong *ngIf="treeUsers['12'].username">{{treeUsers['12'].username}}</strong>
+                                    <a href="javascript:void(0)" *ngIf="!treeUsers['12'].username" class="no-user"> Join Now</a>
+                                  </div>
+                                  <div class="row" style="margin-top: 2px;">
+                                    <img [ngClass]="{'no-user-img': !treeUsers['12'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['12'].packname ? treeUsers['12'].packname : 'grey'}}.png"  alt="No User">
+                                  </div>
+                                </div>
+                                <div class="_tooltip row" *ngIf="treeUsers['12'].tooltip">
+                                  <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['12'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                      <div class="card-avatar">
+                                          <a href="#pablo">
+                                              <img class="avatar" src="assets/img/avatars/{{treeUsers['12'].profileimg ? treeUsers['12'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                          </a>
+                                      </div>
+                                      <div class="card-content" >
+                                          <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['12'].username}}  <span class="pack" title="Package Name">({{treeUsers['12'].packname}})</span></h4>
+                                          <div class="row">
+                                            <div class="col-xs-6">
+                                              <div class="row" *ngFor="let tool of treeUsers['12'].tooltip.slice(0, treeUsers['12'].tooltip.length/2)">
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                              </div>
+                                            </div>
+                                            <div class="col-xs-6" *ngFor="let tool of treeUsers['12'].tooltip.slice( treeUsers['12'].tooltip.length/2, treeUsers['12'].tooltip.length)">
+                                              <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                            <li>
+                              <a (click)="treeLoader(treeUsers['13'].userid)" data-tooltip="sticky4" class="sea-circle _user" style="position: relative;z-index: 88;">
+                                <div class="container-fluid">
+                                  <div class="row">
+                                   
+                                    <strong *ngIf="treeUsers['13'].username">{{treeUsers['13'].username}}</strong>
+                                    <a href="javascript:void(0)" *ngIf="!treeUsers['13'].username" class="no-user"> Join Now</a>
+                                  </div>
+                                  <div class="row" style="margin-top: 2px;">
+                                    <img  [ngClass]="{'no-user-img': !treeUsers['13'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['13'].packname ? treeUsers['13'].packname : 'grey'}}.png"  alt="No User">
+                                  </div>
+                                </div>
+                                <div class="_tooltip row" *ngIf="treeUsers['13'].tooltip">
+                                  <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['13'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                      <div class="card-avatar">
+                                          <a href="#pablo">
+                                              <img class="avatar" src="assets/img/avatars/{{treeUsers['13'].profileimg ? treeUsers['13'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                          </a>
+                                      </div>
+                                      <div class="card-content" >
+                                          <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['13'].username}}  <span class="pack" title="Package Name">({{treeUsers['13'].packname}})</span></h4>
+                                          <div class="row">
+                                            <div class="col-xs-6">
+                                              <div class="row" *ngFor="let tool of treeUsers['13'].tooltip.slice(0, treeUsers['13'].tooltip.length/2)">
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                              </div>
+                                            </div>
+                                            <div class="col-xs-6" *ngFor="let tool of treeUsers['13'].tooltip.slice( treeUsers['13'].tooltip.length/2, treeUsers['13'].tooltip.length)">
+                                              <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a (click)="treeLoader(treeUsers['7'].userid)" data-tooltip="sticky7" class="sea-circle _user" style="position: relative;z-index: 94;">
+                            <div class="container-fluid">
+                              <div class="row">
+                               
+                                <strong *ngIf="treeUsers['7'].username">{{treeUsers['7'].username}}</strong>
+                                <a href="javascript:void(0)" *ngIf="!treeUsers['7'].username" class="no-user"> Join Now</a>
+                              </div>
+                              <div class="row" style="margin-top: 2px;">
+
+                                <img [ngClass]="{'no-user-img': !treeUsers['7'].packname}" class="img-circle ng-scope" width="50" height="50" src="assets/img/users/{{treeUsers['7'].packname ? treeUsers['7'].packname : 'grey'}}.png" alt="No User" style=""> 
+
+                              </div>
+                            </div>
+                            <div class="_tooltip row" *ngIf="treeUsers['7'].tooltip">
+                              <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['7'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                  <div class="card-avatar">
+                                      <a href="#pablo">
+                                          <img class="avatar" src="assets/img/avatars/{{treeUsers['7'].profileimg ? treeUsers['7'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                      </a>
+                                  </div>
+                                  <div class="card-content" >
+                                      <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['7'].username}}  <span class="pack" title="Package Name">({{treeUsers['7'].packname}})</span></h4>
+                                      <div class="row">
+                                        <div class="col-xs-6">
+                                          <div class="row" *ngFor="let tool of treeUsers['7'].tooltip.slice(0, treeUsers['7'].tooltip.length/2)">
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-6" *ngFor="let tool of treeUsers['7'].tooltip.slice( treeUsers['7'].tooltip.length/2, treeUsers['7'].tooltip.length)">
+                                          <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                            <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                        </div>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                            </div>
+                          </a>
+                          <ul class="level3 right-circles">
+                            <li class="circle-list">
+                              <a (click)="treeLoader(treeUsers['14'].userid)" data-tooltip="sticky3" class="sea-circle _user" style="position: relative;z-index: 87;">
+                                <div class="container-fluid">
+                                  <div class="row">
+                               
+                                    <strong *ngIf="treeUsers['14'].username">{{treeUsers['14'].username}}</strong>
+                                    <a href="javascript:void(0)" *ngIf="!treeUsers['14'].username" class="no-user"> Join Now</a>
+                                  </div>
+                                  <div class="row" style="margin-top: 2px;">
+                                    <img [ngClass]="{'no-user-img': !treeUsers['14'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['14'].packname ? treeUsers['14'].packname : 'grey'}}.png"  alt="No User">
+                                  </div>
+                                </div>
+                                <div class="_tooltip row" *ngIf="treeUsers['14'].tooltip">
+                                  <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['14'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                      <div class="card-avatar">
+                                          <a href="#pablo">
+                                              <img class="avatar" src="assets/img/avatars/{{treeUsers['14'].profileimg ? treeUsers['14'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                          </a>
+                                      </div>
+                                      <div class="card-content" >
+                                          <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['14'].username}}  <span class="pack" title="Package Name">({{treeUsers['14'].packname}})</span></h4>
+                                          <div class="row">
+                                            <div class="col-xs-6">
+                                              <div class="row" *ngFor="let tool of treeUsers['14'].tooltip.slice(0, treeUsers['14'].tooltip.length/2)">
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                              </div>
+                                            </div>
+                                            <div class="col-xs-6" *ngFor="let tool of treeUsers['14'].tooltip.slice( treeUsers['14'].tooltip.length/2, treeUsers['14'].tooltip.length)">
+                                              <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                            <li>
+                              <a (click)="treeLoader(treeUsers['15'].userid)" data-tooltip="sticky4" class="sea-circle _user" style="position: relative;z-index: 86;">
+                                <div class="container-fluid">
+                                  <div class="row">
+                                   
+                                    <strong *ngIf="treeUsers['15'].username">{{treeUsers['15'].username}}</strong>
+                                    <a href="javascript:void(0)" *ngIf="!treeUsers['15'].username" class="no-user"> Join Now</a>
+                                  </div>
+                                  <div class="row" style="margin-top: 2px;">
+                                    <img  [ngClass]="{'no-user-img': !treeUsers['15'].packname}" class="img-circle ng-scope" width="50" height="50"  src="assets/img/users/{{treeUsers['15'].packname ? treeUsers['15'].packname : 'grey'}}.png"  alt="No User">
+                                  </div>
+                                </div>
+                                <div class="_tooltip row" *ngIf="treeUsers['15'].tooltip">
+                                  <div class="card card-profile" [ngStyle]="{'background-color': treeUsers['15'].color,'width': '400px','padding': '0px 5px 10px 20px'}">
+                                      <div class="card-avatar">
+                                          <a href="#pablo">
+                                              <img class="avatar" src="assets/img/avatars/{{treeUsers['15'].profileimg ? treeUsers['15'].profileimg : 'default-avatar'}}.jpg" alt="...">
+                                          </a>
+                                      </div>
+                                      <div class="card-content" >
+                                          <h4 class="card-title" [ngStyle]="{ 'color': '#fffcfc', 'margin-bottom': '5px'}">{{treeUsers['15'].username}}  <span class="pack" title="Package Name">({{treeUsers['15'].packname}})</span></h4>
+                                          <div class="row">
+                                            <div class="col-xs-6">
+                                              <div class="row" *ngFor="let tool of treeUsers['15'].tooltip.slice(0, treeUsers['15'].tooltip.length/2)">
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                              </div>
+                                            </div>
+                                            <div class="col-xs-6" *ngFor="let tool of treeUsers['15'].tooltip.slice( treeUsers['15'].tooltip.length/2, treeUsers['15'].tooltip.length)">
+                                              <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">{{tool.key}}</div>
+                                                <div class="col-xs-6" [ngStyle]="{'text-align': 'left'}">: {{tool.value}}</div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card tree_java" style="z-index: 90;">
+            <div class="card-content">
+              <div class="col-md-6 text-center">
+                <button class="btn btn-rose btn-sm" (click)="treeLoader(1)">Back To Root</button>
+              </div>
+              <div class="col-md-6 text-center">
+                    <form class=" form-inline" #form="ngForm">
+                      <div class="form-group label-floating">
+                        <label class="control-label" >Tree User Id:
+                        </label>
+                          <input type="text" name="userName" class="form-control myInp" #user required>
+                      </div>
+                    <div class="form-group">
+                      <button type="submit" [disabled]="!user.value" class="btn btn-rose btn-sm"  (click)="treeLoader(user.value)">Go</button>
+                    </div>
+                    </form>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+    </div>
+</div>
+
+    
